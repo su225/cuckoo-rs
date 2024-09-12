@@ -1,1 +1,1 @@
-mod cuckoo;
+pub mod cuckoo;

@@ -6,10 +6,11 @@ const MAX_LOOP: u8 = 100;
 /// can go to any of two buckets as long as there is an empty slot. The
 /// downside as compared to standard hash table is that it requires two
 /// independent hash functions.
-struct CuckooHashTable<T> {
+pub struct CuckooHashTable<T> {
     buckets: [Vec<Option<T>>; 2],
     size: usize,
     capacity: usize,
+    load_factor: f64,
     hash1: DefaultHasher,
     hash2: DefaultHasher,
 }
@@ -25,6 +26,7 @@ impl<T: Hash + Clone + Eq> CuckooHashTable<T> {
             buckets: [vec![None; init_capacity], vec![None; init_capacity]],
             capacity: init_capacity,
             size: 0,
+            load_factor: 0.2,
             hash1: h1,
             hash2: h2,
         }
