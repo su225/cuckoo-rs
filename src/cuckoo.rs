@@ -124,6 +124,7 @@ impl<T: Hash + Clone + Eq> CuckooHashTable<T> {
         let mut resized = CuckooHashTable{
             buckets: [vec![None; new_capacity], vec![None; new_capacity]],
             size: 0,
+            load_factor: self.load_factor,
             capacity: new_capacity,
             hash1: self.hash1.clone(),
             hash2: self.hash2.clone(),
