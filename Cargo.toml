@@ -3,4 +3,6 @@ name = "cuckoo-rs"
 version = "0.1.0"
 edition = "2021"
 
-[dependencies]
+[dev-dependencies]
+quickcheck = "1.0.3"
+quickcheck_macros = "1.0.0"
